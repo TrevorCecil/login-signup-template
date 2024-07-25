@@ -17,10 +17,17 @@ Including another URLconf
 
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('index/', views.index, name='index'),
     path('', views.login_page, name='login'),
     path('logout/', views.logout_page, name='logout'),
-    path('signup/', views.signup, name='signup')
+    path('signup/', views.signup, name='signup'),
+    path('user/', views.user_profile, name='user'),
 ]
+
+urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
