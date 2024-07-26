@@ -26,6 +26,11 @@ urlpatterns = [
     path('logout/', views.logout_page, name='logout'),
     path('signup/', views.signup, name='signup'),
     path('user/', views.user_profile, name='user'),
+    path('customer/<str:pk>/', views.customer, name='customer'),
+    path('product/', views.product, name='product'),
+    path('create_order/<str:pk>/', views.createOrder, name='create_order'),
+    path('update_order/<str:pk>/', views.updateOrder, name='update_order'),
+    path('delete_order/<str:pk>/', views.deleteOrder, name='delete_order'),
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

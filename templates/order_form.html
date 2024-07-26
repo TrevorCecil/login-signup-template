@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block main%}
+     <div class="row p-5">
+     <form action="" method="POST">
+     {% csrf_token %}
+     {{ formset.management_form }}
+        {% for form in formset %}
+            <br>
+            {{ form.as_p }}
+            <hr>
+        {% endfor %}
+         <input type="submit" name="Submit">
+     </form>
+     </div>
+{% endblock %}
+</body>
+</html>
